@@ -14,9 +14,14 @@ const haedarrLoading = async () => {
 
 const checkResult = () => {
 	if (isLoading) return;
+	const userName = document.getElementById('name');
+	if (userName.length === 0) {
+		alert('이름을 입력해주세요!');
+		return;
+	}
 	isLoading = true;
 	haedarrLoading();
-	const userName = document.getElementById('name');
+
 	const checkedBoxes = document.querySelectorAll('input[name="movie"]:checked');
 
 	let alertMessage = `${userName.value}님 환영합니다! \n취향이 같은 갯수 - ${checkedBoxes.length}개\n`;
